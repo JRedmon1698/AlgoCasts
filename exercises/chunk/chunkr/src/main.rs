@@ -34,5 +34,10 @@ mod tests {
         let input: Vec<usize> = vec![1, 2, 3];
         let expected: Vec<Vec<usize>> = vec![vec![1, 2], vec![3]];
         assert_eq!(chunks(input, 2), expected);
+
+        let input: Vec<usize> = vec![1, 2, 3, 4];
+        let size = 5_usize;
+        let expected: Vec<Vec<usize>> = vec![vec![1, 2, 3, 4]];
+        assert_eq!(chunks(input, size), expected);
     }
 }
