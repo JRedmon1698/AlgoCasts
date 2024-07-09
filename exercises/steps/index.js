@@ -17,33 +17,48 @@
 //       '### '
 //       '####'
 
+// function steps(n) {
+//   let str = '';
+//   let counter = 1;
+
+//   while (counter <= n) {
+//     str += '#';
+//     counter++;
+//   }
+
+//   let logStr = str;
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     console.log(logStr.slice(i) + addSpace(i));
+//   }
+// }
+
+// function addSpace(n) {
+//   let str = '';
+//   let counter = 0;
+//   while (counter < n) {
+//     str += ' ';
+//     counter++;
+//   }
+
+//   return str;
+// }
+
 function steps(n) {
-  let str = '';
-  let counter = 1;
+  for (let row = 0; row < n; row++) {
+    let stair = '';
 
-  while (counter <= n) {
-    str += '#';
-    counter++;
-  }
-
-  let logStr = str;
-  for (let i = str.length - 1; i >= 0; i--) {
-    console.log(logStr.slice(i) + addSpace(i));
+    for (let col = 0; col < n; col++) {
+      if (col <= row) {
+        stair += '#';
+      } else {
+        stair += ' ';
+      }
+    }
+    console.log(stair);
   }
 }
 
-function addSpace(n) {
-  let str = '';
-  let counter = 0;
-  while (counter < n) {
-    str += ' ';
-    counter++;
-  }
 
-  return str;
-}
-
-
-// console.log(steps(3))
+console.log(steps(3))
 
 module.exports = steps;
