@@ -14,6 +14,17 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  // start with base string that has n #'s
+  // iterate from 0..n and slice off i to -i and add spaces
+
+  let base_string = '';
+  for (let i = 0; i < n; i++) {
+    base_string += '#';
+  } 
+  console.log(base_string)
+}
+
+pyramid(4);
 
 module.exports = pyramid;
