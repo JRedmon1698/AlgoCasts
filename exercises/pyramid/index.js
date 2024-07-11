@@ -22,7 +22,17 @@ function pyramid(n) {
   for (let i = 0; i < n; i++) {
     base_string += '#';
   } 
-  console.log(base_string)
+  // console.log(base_string)
+  let legnth = base_string.length;
+
+  let display_string = base_string;
+  for (let i = length - 1; i >= 0; i--) {
+    
+  }
+}
+
+function addSpaces(n) {
+  
 }
 
 pyramid(4);
