@@ -27,12 +27,24 @@ function pyramid(n) {
 
   let display_string = base_string;
   for (let i = length - 1; i >= 0; i--) {
-    
+    if (i === (length + 1) / 2) {
+      console.log(display_string);
+    }
+    console.log(returnStrSlice(display_string, i));
   }
 }
 
-function addSpaces(n) {
-  
+function returnStrSlice(str, n) {
+  let spaces = '';
+  let length = str.length;
+
+  let counter = 1;
+  while(counter <= n) {
+    spaces += ' ';
+    counter++;
+  }
+
+  return `${spaces}${str.slice(n, length - n)}${spaces}`;
 }
 
 pyramid(4);
