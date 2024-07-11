@@ -20,26 +20,25 @@
 // ' 7 '
 
 function pyramid(n) {
-  // start with base string that has n #'s
-  // iterate from 0..n and slice off i to -i and add spaces
   if (n === 1) {
-    return '#';
+    console.log('#');
+    return;
   }
 
   let base_string = '';
   let base_string_length = (n * 2) - 1;
+
   for (let i = 0; i < base_string_length; i++) {
     base_string += '#';
   } 
-  // console.log(base_string)
-  let length = base_string.length;
 
-  let display_string = base_string;
-  for (let i = length - 1; i >= 0; i--) {
-    // if (i === (length + 1) / 2) {
-    //   return;
-    // }
-    console.log(returnStrSlice(display_string, i));
+  let length = base_string.length;
+  // since we're iterating backwards, dont start slicing until we have something to slice
+  let startingPoint = Math.floor(length / 2);
+  let displayString = base_string;
+  
+  for (let i = startingPoint; i >= 0; i--) {
+    console.log(returnStrSlice(displayString, i));
   }
 }
 
@@ -55,7 +54,8 @@ function returnStrSlice(str, n) {
 
   return `${spaces}${str.slice(n, length - n)}${spaces}`;
 }
+// console.log('slice', returnStrSlice('#######', 3))
 
-pyramid(4);
+pyramid(6);
 
 module.exports = pyramid;
