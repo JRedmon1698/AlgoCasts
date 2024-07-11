@@ -23,7 +23,7 @@ function pyramid(n) {
     base_string += '#';
   } 
   // console.log(base_string)
-  let legnth = base_string.length;
+  let length = base_string.length;
 
   let display_string = base_string;
   for (let i = length - 1; i >= 0; i--) {
