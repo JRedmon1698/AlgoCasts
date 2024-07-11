@@ -13,13 +13,22 @@
 //       '  #  '
 //       ' ### '
 //       '#####'
+// 4
+// ' 1 '
+// ' 3 '
+// ' 5 '
+// ' 7 '
 
 function pyramid(n) {
   // start with base string that has n #'s
   // iterate from 0..n and slice off i to -i and add spaces
+  if (n === 1) {
+    return '#';
+  }
 
   let base_string = '';
-  for (let i = 0; i < n; i++) {
+  let base_string_length = (n * 2) - 1;
+  for (let i = 0; i < base_string_length; i++) {
     base_string += '#';
   } 
   // console.log(base_string)
@@ -27,9 +36,9 @@ function pyramid(n) {
 
   let display_string = base_string;
   for (let i = length - 1; i >= 0; i--) {
-    if (i === (length + 1) / 2) {
-      console.log(display_string);
-    }
+    // if (i === (length + 1) / 2) {
+    //   return;
+    // }
     console.log(returnStrSlice(display_string, i));
   }
 }
