@@ -11,7 +11,6 @@ function pyramid($iNum){
         $sBase .= '#';
     }
 
-    // var_dump($sBase);
     $iLength = strlen($sBase);
     $sDisplayStr = $sBase;
     $iStart = floor($iLength / 2);
@@ -32,8 +31,8 @@ function stringSlice($sStr, $iNum){
 
     $iBaseLength = $iLength - ($iNum * 2);
 
-    return substr($sStr, $iNum, $iBaseLength);
+    return $sSpaces.substr($sStr, $iNum, $iBaseLength).$sSpaces;
 }
 
-var_dump(stringSlice('#####', 2));
-// var_dump(pyramid(3));
+// var_dump(stringSlice('#####', 2));
+var_dump(pyramid(3));
