@@ -16,23 +16,45 @@
 //     [10,  9,  8, 7]]
 
 function matrix(n) {
+  let counter = 1;
+  let startCol = 0;
+  let startRow = 0;
+  let endCol = n - 1; 
+  let endRow = n -1;
   let matrix = [];
-  // for 1..n
-  // iterate over range adding each num to inner arr
-  // when innter arr reaches length n, start over
-  // fill first row
-  // fill last col
-  // fill last row
-  // fill first col - 1
-  // fill 2nd row - 1
-  // fill 2nd to last col - 2
-  // fill 2nd to last row - 2
-  let innerMatrix = [];
-  for (let row = 0; row < n; row++) {
-    for (let col = 0; col < n; col++) {
-      
+
+  for(let i = 0; i < n; i++) {
+    matrix.push([]);
+  }
+
+  while (startCol <= endCol && startRow <= endRow) {
+    // top row
+    for (let i = startCol; i <= endCol; i++) {
+      matrix[startRow][i] = counter;
+      counter++;
     }
-    matrix.push(innerMatrix);
+    startRow++;
+
+    // right column
+    for (let k = startRow; k <= endRow; k++) {
+      matrix[k][endCol] = counter;
+      counter++;
+    }
+    endCol--;
+
+    // bottom row
+    for (let j = endCol; j >= startCol; j--) {
+      matrix[endRow][j] = counter;
+      counter++;     
+    }
+    endRow--;
+
+    // left column
+    for (let l = endRow; l >= startRow; l--) {
+      matrix[l][startCol] = counter;
+      counter++;
+    }
+    startCol++;
   }
 
   return matrix;
