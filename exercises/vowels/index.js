@@ -9,12 +9,17 @@
 
 function vowels(str) {
   const VOWELS = ['a', 'e', 'i', 'o', 'u'];
-
+  let count = 0;
+  
   for (let char of str) {
-   console.log(char); 
+    if (VOWELS.indexOf(char.toLowerCase()) !== -1) {
+      count++;
+    }
   }
+
+  return count;
 }
 
-console.log(vowels("Hello there"));
+console.log(vowels("AEIOU"));
 
 module.exports = vowels;
