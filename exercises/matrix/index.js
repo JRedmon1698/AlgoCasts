@@ -63,3 +63,26 @@ function matrix(n) {
 console.log(matrix(3));
 
 module.exports = matrix;
+
+/*
+make vars to track:
+  start & end col
+  start & end row
+  counter (this actually populates inner matrices)
+  container matrix
+
+iterate to n and fill container arr with n sub arrays
+since we will be tracking which row/col we're on, start a while loop
+  to check that start col & row <= end col & row
+4 for loops, iterating over cols and rows twice, each:
+  one loop each incrementing, one each decrementing (ORDER MATTERS)
+  - incr col
+  - incr row
+  - decr col
+  - decr row
+after each loop, add or subtract start/end row/col:
+  - incrementing over rows: decr end col
+  - incrementing over cols: incr start row
+  - decrementing over rows: incr start col
+  - decrementing over cols: decr end row
+*/
