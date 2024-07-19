@@ -27,7 +27,7 @@ function matrix(n) {
     matrix.push([]);
   }
 
-  while (startCol <= endCol && startRow <= endRow) {
+  while (counter <= n * n) {
     // top row
     for (let i = startCol; i <= endCol; i++) {
       matrix[startRow][i] = counter;
