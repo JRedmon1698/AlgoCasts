@@ -8,42 +8,40 @@ function matrix($iNum){
         $aContainer[] = [];
     }
 
-    var_dump($aContainer);
-
     // inst vars
-    $iNum = 1;
+    $iNumber = 1;
     $iLeftCol = 0;
-    $iRightCol = 0;
+    $iRightCol = $iNum - 1;
     $iTopRow = 0;
-    $iBottomRow = 0;
+    $iBottomRow = $iNum - 1;
 
     // start while loop to check start col/row <= end col/row
-    while($iNum <= $iNum * $iNum){
+    while($iNumber <= $iNum * $iNum){
         // for loop, incr cols, setting startRow
         for($i = $iLeftCol; $i <= $iRightCol; $i++){
-            $aContainer[$iTopRow][$i] = $iNum;
-            $iNum++;
+            $aContainer[$iTopRow][$i] = $iNumber;
+            $iNumber++;
         }
         $iTopRow++;
 
         // for loop, incr rows, setting endCol
         for($i = $iTopRow; $i <= $iBottomRow; $i++){
-            $aContainer[$i][$iRightCol] = $iNum;
-            $iNum++;
+            $aContainer[$i][$iRightCol] = $iNumber;
+            $iNumber++;
         }
         $iRightCol--;
 
         // for loop, decr cols, setting endRow
         for($i = $iRightCol; $i >= $iLeftCol; $i--){
-            $aContainer[$iBottomRow][$i] = $iNum;
-            $iNum++;
+            $aContainer[$iBottomRow][$i] = $iNumber;
+            $iNumber++;
         }
         $iBottomRow--;
 
         // for loop, decr rows, setting startCol
         for($i = $iBottomRow; $i >= $iTopRow; $i--){
-            $aContainer[$i][$iLeftCol] = $iNum;
-            $iNum++;
+            $aContainer[$i][$iLeftCol] = $iNumber;
+            $iNumber++;
         }
         $iLeftCol++;
     }
@@ -51,4 +49,4 @@ function matrix($iNum){
     return $aContainer;
 }
 
-var_dump(matrix(3));
+print_r(matrix(3));
