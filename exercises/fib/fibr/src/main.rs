@@ -1,5 +1,5 @@
 fn main() {
-    let res = fib(500);
+    let res = fib(50);
     println!("{res}");
 }
 
