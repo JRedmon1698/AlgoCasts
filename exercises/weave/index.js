@@ -30,29 +30,27 @@ q1.add(2);
 q1.add(3);
 
 const q2 = new Queue();
-q2.add('blue');
-q2.add('green');
-q2.add('red');
+q2.add('one');
+q2.add('two');
+q2.add('three');
 
 function weave(sourceOne, sourceTwo) {
-  let weavedData = [];
+  let weavedQueue = new Queue();
   
-  sourceOne.data.forEach((e, i) => {
-    weavedData.push(e);
-    // sourceTwo.data.forEach(el => {
-    //   weavedData.push(sourceTwo.data[i]);
-    //   break;
-    // });
-    for (let j = 0; j < sourceTwo.data.length; j++) {
-      weavedData.push(sourceTwo.data[i]);
+  for (let i = sourceOne.data.length - 1; i >= 0; i--) {
+    weavedQueue.add(sourceOne.data[i]);
+
+    for (let j = sourceTwo.data.length - 1; j >= 0; j--) {
+      weavedQueue.add(sourceTwo.data[i]);
       break;
     }
-  });
+  };
   
-  console.log(weavedData);
-  return weavedData;
+  return weavedQueue;
 }
 
-weave(q1, q2);
+let q3 = weave(q1, q2);
+console.log(q3.remove());
+console.log(q3.remove());
 
 module.exports = weave;
