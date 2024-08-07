@@ -13,13 +13,17 @@
 class Stack {
   constructor() {
     this.data = [];
-    this.current = 0;
   }
 
+  // dont use native push()
   push(val) {
-    // console.log("current: ", this.current)
-    this.data[this.current] = val;
-    this.current++;
+    // before adding new element, push everything over to the left
+    for (let i = this.data.length; i > 0; i--) {
+      this.data[i] = this.data[i - 1];
+    }
+
+    // add new element to "front"
+    this.data[0] = val;
   }
 
   pop() {
@@ -27,9 +31,21 @@ class Stack {
       return undefined;
     }
 
-    let top = this.data[];
-    this.current--;
+    let top = this.data[0];
+
+    // similarly to push, shift everything to the right before removing top
+    for (let i = 0; i < this.data.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+
+    // clean up "hanging" index of top that has been removed
+    this.data.length = this.data.length - 1;
+
     return top;
+  }
+
+  peek() {
+    return this.data[0];
   }
 }
 
@@ -39,7 +55,7 @@ s.push(2);
 s.push(3);
 console.log(s.data);
 
-s.pop();
+// s.pop();
 console.log(s.pop());
 console.log(s);
 
