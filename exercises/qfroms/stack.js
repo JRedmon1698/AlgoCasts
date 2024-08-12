@@ -16,4 +16,15 @@ class Stack {
   }
 }
 
+let stack = new Stack();
+stack.push(1);
+stack.push(2);
+
+console.log(stack);
+
+console.log(stack.peek());
+
+stack.pop();
+console.log(stack);
+
 module.exports = Stack;
