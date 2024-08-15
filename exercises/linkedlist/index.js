@@ -11,21 +11,25 @@ class Node {
 
 class LinkedList {
   constructor() {
-    this.nodes = [];
     this.head = null;
-    this.tail = null;
   }
 
   insertFirst(data) {
-    let node = new Node(data);
+    let oldHead = this.head;
+    let node = new Node(data, oldHead);
     this.head = node;
-    this.nodes.push(node);
-    // nope. need to cover the case where there is only one node 
-    // its head AND tail
   }
 
   size() {
-    return this.nodes.length;
+    let nodeCount = 0;
+    let currentNode = this.head;
+
+    while (currentNode) {
+      nodeCount++;
+      currentNode = currentNode.next;
+    }
+
+    return nodeCount;
   }
 
   getFirst() {
@@ -33,7 +37,7 @@ class LinkedList {
   }
 
   getLast() {
-    return this.tail;
+    
   }
 }
 
@@ -41,7 +45,13 @@ module.exports = { Node, LinkedList };
 
 let l = new LinkedList();
 // console.log('empty ll: ', l);
-l.insertFirst('one');
-l.insertFirst('two');
+l.insertFirst('a');
+l.insertFirst('b');
+l.insertFirst('c');
 // console.log(l);
-// console.log(l.size())
+// l.removeFirst();
+// console.log(l);
+// l.removeFirst();
+// console.log(l);
+
+
