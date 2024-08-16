@@ -37,7 +37,26 @@ class LinkedList {
   }
 
   getLast() {
-    
+    let currentNode = this.head;
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  }
+
+  clear() {
+    this.head.next = null;
+    this.head = null;
+  }
+
+  removeFirst() {
+    if (this.head.next) {
+      let newHead = this.head.next;
+      this.head = newHead;
+    } else {
+      this.head = null;
+    }
   }
 }
 
@@ -46,10 +65,13 @@ module.exports = { Node, LinkedList };
 let l = new LinkedList();
 // console.log('empty ll: ', l);
 l.insertFirst('a');
-l.insertFirst('b');
-l.insertFirst('c');
-// console.log(l);
-// l.removeFirst();
+// l.insertFirst('b');
+// l.insertFirst('c');
+console.log(l);
+l.removeFirst();
+console.log(l);
+// console.log('first', l.getFirst());
+// console.log('last', l.getLast());
 // console.log(l);
 // l.removeFirst();
 // console.log(l);
