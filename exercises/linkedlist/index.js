@@ -78,6 +78,17 @@ class LinkedList {
 
     previous.next = null;
   }
+
+  insertLast(val) {
+    let newNode = new Node(val);
+
+    if (!this.head) {
+      this.head = newNode;
+    }
+
+    let lastNode = this.getLast();
+    lastNode.next = newNode;
+  }
 }
 
 module.exports = { Node, LinkedList };
@@ -85,11 +96,11 @@ module.exports = { Node, LinkedList };
 let l = new LinkedList();
 // console.log('empty ll: ', l);
 l.insertFirst('a');
-l.insertFirst('b');
+l.insertLast('b');
 // l.insertFirst('c');
 console.log(l);
-l.removeLast();
-console.log(l);
+// l.removeLast();
+// console.log(l);
 // console.log('first', l.getFirst());
 // console.log('last', l.getLast());
 // console.log(l);
