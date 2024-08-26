@@ -112,6 +112,15 @@ class LinkedList {
     if (!this.head) {
       return;
     }
+
+    if (index === 0) {
+      this.removeFirst();
+    } else if (index === this.size() - 1) {
+      this.removeLast();
+    } else {
+      
+    }
+    
   }
 }
 
