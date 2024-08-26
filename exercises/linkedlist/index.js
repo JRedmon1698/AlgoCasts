@@ -114,13 +114,15 @@ class LinkedList {
     }
 
     if (index === 0) {
-      this.removeFirst();
-    } else if (index === this.size() - 1) {
-      this.removeLast();
-    } else {
-      
+      this.head = this.head.next;
+      return;
     }
     
+    let previous = this.getAt(index - 1);
+    if (!previous || !previous.next) {
+      return;
+    }
+    previous.next = previous.next.next;
   }
 }
 
