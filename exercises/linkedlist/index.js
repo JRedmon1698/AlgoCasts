@@ -124,23 +124,37 @@ class LinkedList {
     }
     previous.next = previous.next.next;
   }
+
+  insertAt(val, index) {
+    if (!this.head) {
+      this.head = new Node(val);
+      return;
+    }
+  
+    if (index === 0) {
+      this.head = new Node(val, this.head);
+      return;
+    }
+
+    if (index >= this.size()) {
+      this.insertLast(val);
+      return;
+    }
+
+    let previous = this.getAt(index - 1);
+    let newNode = new Node(val, previous.next);
+    previous.next = newNode;
+  }
 }
 
 module.exports = { Node, LinkedList };
 
 let l = new LinkedList();
-// console.log('empty ll: ', l);
-// l.insertFirst('a');
-// l.insertLast('b');
-// l.insertFirst('c');
-// console.log(l);
-// console.log(l.getAt(1));
-// l.removeLast();
-// console.log(l);
-// console.log('first', l.getFirst());
-// console.log('last', l.getLast());
-// console.log(l);
-// l.removeFirst();
-// console.log(l);
-
+l.insertLast('a');
+l.insertLast('b');
+l.insertLast('c');
+l.insertAt('hi', 1);
+console.log(`initial ll: ${JSON.stringify(l)}`);
+// l.insertAt('z', 3);
+// console.log(l.getLast());
 
