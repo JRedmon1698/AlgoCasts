@@ -96,6 +96,20 @@ class LinkedList {
             $this->head = new Node($data);
         }
     }
+
+    function getAt($idx){
+        $counter = 0;
+        $current = $this->head;
+
+        while($current){
+            if($counter === $idx){
+                return $current;
+            }
+
+            $counter++;
+            $current = $current->next;
+        }
+    }
 }
 
 $list = new LinkedList();
@@ -103,5 +117,5 @@ $list->insertFirst(1);
 $list ->insertFirst(2);
 $list->insertFirst(3);
 var_dump($list);
-var_dump($list->insertLast(9));
-var_dump('after', $list);
+// var_dump($list->insertLast(9));
+var_dump($list->getAt(1));
