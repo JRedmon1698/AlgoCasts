@@ -110,6 +110,23 @@ class LinkedList {
             $current = $current->next;
         }
     }
+
+    function removeAt($idx){
+        if(!isset($this->head)){
+            return;
+        }
+
+        if($idx === 0){
+            $this->head = $this->head->next;
+        }
+
+        $previous = $this->getAt($idx - 1);
+        if(!isset($previous) || !isset($previous->next)){
+            return;
+        }
+
+        $previous->next = $previous->next->next;
+    }
 }
 
 $list = new LinkedList();
