@@ -30,6 +30,13 @@ impl Tree {
     fn new() -> Self {
         Tree { root: None }
     }
+
+    fn traverse_bf<F>(&self, func: F)
+    where
+        F: FnMut() -> (),
+    {
+        let node = self.root.as_ref().unwrap();
+    }
 }
 
 fn main() {
