@@ -4,9 +4,6 @@ struct Node {
     children: Vec<Node>,
 }
 
-#[derive(Debug)]
-struct Tree {}
-
 impl Node {
     fn new(data: usize) -> Self {
         Node {
@@ -24,10 +21,24 @@ impl Node {
     }
 }
 
+#[derive(Debug)]
+struct Tree {
+    root: Option<Node>,
+}
+
+impl Tree {
+    fn new() -> Self {
+        Tree { root: None }
+    }
+}
+
 fn main() {
     let mut node = Node::new(5);
     node.add(7);
     node.add(9);
     node.remove(9);
-    println!("{:?}", node);
+
+    let mut tree = Tree::new();
+    tree.root = Some(node);
+    println!("{:?}", tree);
 }
