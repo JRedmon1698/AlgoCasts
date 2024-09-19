@@ -11,6 +11,24 @@
 // 4       5
 // Answer: [1, 3, 2]
 
-function levelWidth(root) {}
+function levelWidth(root) {
+  const stop = 'BALLAST';
+  let counters = [0];
+  let nodes = [root, stop];
+
+  while (nodes.length > 1) {
+    let node = nodes.shift();
+
+    if (node === stop) {
+      counters.push(0);
+      nodes.push(stop);
+    } else {
+      nodes.push(...node.children);
+      counters[counters.length - 1]++;
+    }
+  }
+
+  return counters;
+}
 
 module.exports = levelWidth;
