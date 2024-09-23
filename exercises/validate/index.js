@@ -10,7 +10,7 @@ function validate(node, min = null, max = null) {
     return false;
   }
 
-  if (min !== null && node.date < min) {
+  if (min !== null && node.data < min) {
     return false;
   }
 
