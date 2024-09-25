@@ -35,15 +35,34 @@ function selectionSort(arr) {
 }
 
 function mergeSort(arr) {
+  if (arr.length === 1) {
+    return arr;
+  }
 
+  const mid = Math.floor(arr.length / 2);
+  let left = arr.slice(0, mid);
+  let right = arr.slice(mid);
+
+  return merge(mergeSort(left), mergeSort(right));
 }
 
 function merge(left, right) {
+  const results = [];
 
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      results.push(left.shift());
+    } else {
+      results.push(right.shift());
+    }
+  }
+
+  return [...results, ...left, ...right];
 }
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
 
-let arr = [4, -1, 10, 3, 7];
-let sorted = bubbleSort(arr);
-console.log(sorted);
+let left = [4, -1, 10, 3, 7];
+let right = [12, 13, 3, -5, 2, 5];
+let merged = merge(left, right);
+console.log(merged);
