@@ -50,7 +50,7 @@ fn merge_sort(v: &mut Vec<u8>) -> Vec<u8> {
 
 fn merge(mut left: Vec<u8>, mut right: Vec<u8>) -> Vec<u8> {
     let mut result: Vec<u8> = Vec::new();
-    while (left.len() > 0) && (right.len() > 0) {
+    while (!right.is_empty()) && (!left.is_empty()) {
         if left[0] < right[0] {
             result.push(left.remove(0));
         } else {
