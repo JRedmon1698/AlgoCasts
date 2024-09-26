@@ -45,7 +45,11 @@ function mergeSort($arr){
         return $arr;
     }
 
-    
+    $midpoint = floor(count($arr) / 2);
+    $left = array_slice($arr, 0, $midpoint);
+    $right = array_slice($arr, $midpoint);
+
+    return merge(mergeSort($left), mergeSort($right));
 }
 
 function merge($left, $right){
@@ -59,7 +63,7 @@ function merge($left, $right){
         }
     }
 
-    return [...$results, ...$left, ...$right];
+    return [...$result, ...$left, ...$right];
 }
 
-// var_dump(mergeSort($arr));
+var_dump(mergeSort($arr));
