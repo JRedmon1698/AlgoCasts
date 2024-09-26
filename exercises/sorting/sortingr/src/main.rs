@@ -2,6 +2,8 @@ fn main() {
     let v: Vec<u8> = vec![10, 0, 2, 5, 1, 17, 9];
     let res = selection_sort(v);
     println!("sorted: {:?}", res);
+    // let v: Vec<u8> = Vec::new();
+    // println!("{:?}", v.len());
 }
 
 fn bubble_sort(v: &mut Vec<u8>) -> &Vec<u8> {
@@ -30,4 +32,21 @@ fn selection_sort(mut v: Vec<u8>) -> Vec<u8> {
     }
 
     v
+}
+
+fn mergeSort(v: &mut Vec<u8>) {}
+
+fn merge(mut left: Vec<u8>, mut right: Vec<u8>) -> Vec<u8> {
+    let mut result: Vec<u8> = Vec::new();
+    while (left.len() > 0) && (right.len() > 0) {
+        if left[0] < right[0] {
+            result.push(left.remove(0));
+        } else {
+            result.push(right.remove(0));
+        }
+    }
+    result.extend(right);
+    result.extend(left);
+
+    result
 }
