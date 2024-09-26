@@ -1,6 +1,6 @@
 fn main() {
-    let v: Vec<u8> = vec![10, 0, 2, 5, 1, 17, 9];
-    let res = selection_sort(v);
+    let mut v: Vec<u8> = vec![10, 0, 2, 5, 1, 17, 9];
+    let res = merge_sort(&mut v);
     println!("sorted: {:?}", res);
     // let v: Vec<u8> = Vec::new();
     // println!("{:?}", v.len());
@@ -34,7 +34,19 @@ fn selection_sort(mut v: Vec<u8>) -> Vec<u8> {
     v
 }
 
-fn mergeSort(v: &mut Vec<u8>) {}
+fn merge_sort(v: &mut Vec<u8>) -> Vec<u8> {
+    if v.len() == 1 {
+        return v.to_owned();
+    }
+
+    let mid = v.len() / 2;
+    let (left, right) = v.split_at(mid);
+
+    merge(
+        merge_sort(left.to_vec().as_mut()),
+        merge_sort(right.to_vec().as_mut()),
+    )
+}
 
 fn merge(mut left: Vec<u8>, mut right: Vec<u8>) -> Vec<u8> {
     let mut result: Vec<u8> = Vec::new();
