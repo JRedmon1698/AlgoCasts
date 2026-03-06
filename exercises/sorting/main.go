@@ -60,3 +60,4 @@ func merge(left, right []int) []int {
 
 	return sorted
 }
+
