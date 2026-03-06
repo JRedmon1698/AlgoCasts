@@ -60,9 +60,37 @@ function merge(left, right) {
   return [...results, ...left, ...right];
 }
 
-module.exports = { bubbleSort, selectionSort, mergeSort, merge };
-
 let left = [4, -1, 10, 3, 7];
 let right = [12, 13, 3, -5, 2, 5];
 let merged = merge(left, right);
-console.log(merged);
+// console.log(merged);
+
+function quickSort(arr, start, end) {
+  start = start ?? 0;
+  end = end ?? arr.length - 1;
+
+  if (start < end) {
+    const pivot = arr[end];
+    let left = start - 1;
+
+    for (let current = start; current < end; current++) {
+      if (arr[current] <= pivot) {
+        left++;
+        [arr[left], arr[current]] = [arr[current], arr[left]];
+      }
+    }
+
+    [arr[left + 1], arr[end]] = [arr[end], arr[left + 1]];
+
+    const pivotIndex = left + 1;
+
+    quickSort(arr, start, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, end);
+  }
+
+  return arr;
+}
+
+console.log(quickSort([2,3,1,1,8,5,4]));
+
+module.exports = { bubbleSort, selectionSort, mergeSort, merge, quickSort };
