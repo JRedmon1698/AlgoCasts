@@ -22,3 +22,11 @@ func insertionSort(nums []int) []int {
 
 	return nums
 }
+
+func mergeSort(nums []int) []int {
+
+}
+
+func merge(left, right []int) []int {
+
+}
